@@ -50,14 +50,35 @@
     <input id="eraser_button" class="cal-number" type="button" value="C" />
 </div>
 <script>
+    var symbol = true;
+    var operation_symbols = ["+","-","*","/"];
+
     function eraser_calc_txt () {
         document.getElementById("calculator-txt").value = "";
+        symbol = true;
     }
 
     document.getElementById("eraser_button").onclick = eraser_calc_txt;
 
+    function check_if_is_operation_symbol(caracter){
+        for(var caracter_symbol of operation_symbols){
+            if(caracter == caracter_symbol) { return true; }
+        }
+        return false;
+    }
+
     function update_text(e){
-        document.getElementById("calculator-txt").value += e.target.value;
+        if(check_if_is_operation_symbol(e.target.value) == true){
+            if(symbol == true){
+                alert("Type a Number: ");
+            }else{
+                document.getElementById("calculator-txt").value += e.target.value;
+                symbol = true;
+            }
+        }else{
+            document.getElementById("calculator-txt").value += e.target.value;
+            symbol = false;
+        }
     }
 
     document.getElementById("num-9").addEventListener('click', update_text);
