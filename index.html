@@ -2,9 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>That's is a very similar to Windows calculator</title>
+    <style type="text/css">
+        div#general {
+            width: 460px;
+            background: #efa923;
+            border: 5px solid black;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        input#calculator-txt {
+            width: 380px;
+            height: 60px;
+            font-size: 24px;
+        }
+        input.cal-number {
+            width: 130px;
+            height: 70px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
-
+<div id="general">
+    <h1>Calculator</h1>
+    <input id="calculator-txt" type="text" />
+    </br>
+    <input class="cal-number" type="button" value="9" />
+    <input class="cal-number" type="button" value="8" />
+    <input class="cal-number" type="button" value="7" />
+    </br>
+    <input class="cal-number" type="button" value="6" />
+    <input class="cal-number" type="button" value="5" />
+    <input class="cal-number" type="button" value="4" />
+    </br>
+    <input class="cal-number" type="button" value="3" />
+    <input class="cal-number" type="button" value="2" />
+    <input class="cal-number" type="button" value="1" />
+    </br>
+    <input class="cal-number" type="button" value="0" />
+    <input id="eraser_button" class="cal-number" type="button" value="C" />
+</div>
+<script>
+    function eraser_calc_txt () {
+        document.getElementById("calculator-txt").value = "";
+    }
+    document.getElementById("eraser_button").onclick = eraser_calc_txt;
+</script>
 </body>
 </html>
