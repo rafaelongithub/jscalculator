@@ -22,6 +22,11 @@
             height: 70px;
             font-size: 20px;
         }
+        input#cal_button {
+            width: 400px;
+            height: 70px;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +53,8 @@
     <input class="cal-number" id="num-*" type="button" value="*" />
     <input class="cal-number" id="num-/" type="button" value="/" />
     <input id="eraser_button" class="cal-number" type="button" value="C" />
+    </br>
+    <input id="cal_button" class="cal-button" type="button" value="Calcular" />
 </div>
 <script>
     var symbol = true;
@@ -81,6 +88,17 @@
         }
     }
 
+    function calc(){
+        var expression = document.getElementById("calculator-txt").value;
+        var collection_numbers = expression.split("+");
+        var first_number = 0;
+        for(number of collection_numbers){
+            first_number += Number(number);
+        }
+        var result = Number(first_number);
+        alert(result);
+    }
+
     document.getElementById("num-9").addEventListener('click', update_text);
     document.getElementById("num-8").addEventListener('click', update_text);
     document.getElementById("num-7").addEventListener('click', update_text);
@@ -95,6 +113,8 @@
     document.getElementById("num--").addEventListener('click', update_text);
     document.getElementById("num-*").addEventListener('click', update_text);
     document.getElementById("num-/").addEventListener('click', update_text);
+
+    document.getElementById("cal_button").addEventListener('click', calc);
 </script>
 </body>
 </html>
